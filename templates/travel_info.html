@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block headcontent %}
+  <link href='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.js'></script>
+
+  <link rel="stylesheet" href="{% static 'css/trinfo.css' %}">
+
+  <style>
+    #openstreet-map {
+      position:fixed;
+      top:66px;
+      left:0px;
+      height: 91%;
+      width:100%;
+    }
+	</style>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- openstreet map goes here -->
+<div id="openstreet-map"></div>
+<script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoiZmluZWJydXNoIiwiYSI6ImNqaTM4ZmhvZTFqZjYza253cnVydm54aHgifQ.AMGLiQ9Mq1jusW07UW5THQ';
+    var map = L.mapbox.map('openstreet-map', 'mapbox.streets')
+        .setView([37.57032, 126.97687], 16);
+
+    //L.marker([37.57032, 126.97687]).addTo(map);
+    //L.marker([37.57368, 126.97531]).addTo(map);
+
+    //마우스 클릭했을때 위경도 가져오기
+    map.on('click',function(e){
+      lat = e.latlng.lat;
+      lon = e.latlng.lng;
+      //L.marker() 뒤에 붙여서 여러 옵션을 주고 add 하면 맵자체에 삽입되고,
+      //L.mapbox.featureLayer() 뒤에 붙여서 옵션을 주고 add 하면 레이어에 삽입된다.
+      //마우스 클릭하면 그 위치에 마커를 넣는다.
+      L.marker([lat, lon])
+          .bindPopup('<button class="dialog__trigger">이 위치를 여행정보로 등록</button>')
+          .addTo(map);
+    });
+    //특정위치에 팝업 띄우기
+    var popup = L.popup()
+    	.setLatLng([37.57032, 126.97687])
+    	.setContent('<p>Hello world!<br />This is a nice popup.</p>')
+    	.openOn(map);
+
+    //POI 클릭시 팝업을 띄우기, pen.js 안에 trigger 클릭시 다이얼로그 띄움
+    var myLayer = L.mapbox.featureLayer()
+        //여기 bindPopup이 아래 bindPopup 보다 우선나타남. 이부분을 삭제하면 아래 bindPopup이 나타남
+        //.bindPopup('<button class="trigger">Say hi</button>')
+        .addTo(map);
+
+    var geojson = [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [126.97687, 37.57032] //위경도가 반대로 입력되야 나옴!!!
+        },
+        properties: {
+          title: 'Mapbox DC',
+          description: '1714 14th St NW, Washington DC',
+          image: 'https://farm9.staticflickr.com/8571/15844010757_63b093d527_n.jpg',
+          icon: {
+            iconUrl: "{% static 'imgs/placeholder01.png' %}",
+            iconSize: [50, 50], // size of the icon
+            iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+            className: 'dot'
+          }
+        }
+      },
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [126.97876, 37.57426]
+        },
+        properties: {
+          title: 'Mapbox SF',
+          description: '155 9th St, San Francisco',
+          image: 'https://farm9.staticflickr.com/8571/15844010757_63b093d527_n.jpg',
+          icon: {
+            iconUrl: "{% static 'imgs/placeholder02.png' %}",
+            iconSize: [50, 50], // size of the icon
+            iconAnchor: [25, 25], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, -25], // point from which the popup should open relative to the iconAnchor
+            className: 'dot'
+          }
+        }
+      }
+    ];
+    // Set a custom icon on each marker based on feature properties.
+    myLayer.on('layeradd', function(e) {
+      var marker = e.layer,
+        feature = marker.feature;
+      marker.setIcon(L.icon(feature.properties.icon));
+      var content = '<p><strong>' + feature.properties.title + '</strong></p><img src="' + feature.properties.image + '" alt="">';
+      marker.bindPopup(content);
+    });
+    myLayer.setGeoJSON(geojson);
+    //map.scrollWheelZoom.disable();
+</script>
+
+<div class="wrap">
+  <div class="search">
+    <input type="text" class="searchTerm" placeholder="What are you looking for?">
+    <button type="submit" class="searchButton">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+  <div class="mapover-menu" style="position:absolute; left:100%; margin-left:5px">
+    <div class="content" style="position:aboulute;left:260px;">
+      <a id="menu-button"></a>
+      <div id="hamburger-menu">
+        <nav>
+          <a href="#">전체</a>
+          <a href="#">보다</a>
+          <a href="#">먹다</a>
+          <a href="#">마시다</a>
+          <a href="#">자다</a>
+        </nav>
+      </div>
+      <div id="overlay"></div>
+    </div>
+  </div>
+</div>
+
+<div class="slider-menu" style="position:absolute; left:92%; top:10%;">
+  <input id="menu_trigger" type="checkbox" />
+  <label for="menu_trigger">
+    <div class="icon">
+      <div class="bar first"></div>
+      <div class="bar second"></div>
+      <div class="bar third"></div>
+    </div>
+  </label>
+  <div class="menu">
+    <label for="menu_trigger">
+      <div class="bar first"></div>
+      <div class="bar second"></div>
+    </label>
+
+    <div class="mapover" style="position:absolute;top:30px;height:100%;width:100%;">
+      <div class="d-inline-flex align-items-center" style="width:100%;">
+        <input type="text" placeholder="장소명 검색" id="textSearch" style="width:100%;">
+        <i class="fa fa-search" id="iconSearch" style="font-size:20px;margin-left:0;background-color:#ffffff;width:30px;height:30px;padding:3px;"></i>
+        <i class="fa fa-external-link-square" id="iconExpend" style="font-size:32px;color:rgb(255,255,255);margin-left:5px;"></i>
+      </div>
+      <div class="dropdown" style="width:100%;margin-top:10px;">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100%;">전체&nbsp;</button>
+        <div class="dropdown-menu" role="menu" style="width:100%;">
+          <a class="dropdown-item" role="presentation" href="#">전체</a>
+          <a class="dropdown-item" role="presentation" href="#">배치</a>
+          <a class="dropdown-item" role="presentation" href="#">미 배치</a>
+        </div>
+      </div>
+      <span class="text-light bg-secondary d-block d-flex justify-content-center align-items-center" style="margin-top:10px;height:30px;">장소명</span>
+      <ul class="list-unstyled" style="background-color:#ffffff;padding:5px;height:62%;font-size:18px;margin-bottom:0;">
+        <li>Item 1<i class="fa fa-map-marker float-right" style="color:rgb(237,125,44);font-size:24px;"></i></li>
+        <li>Item 2<i class="fa fa-map-marker float-right" style="color:rgb(237,125,44);font-size:24px;"></i></li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+      <button id="tiregister" class="btn btn-primary btn-block" type="button">여행정보 등록하기</button>
+    </div>
+
+  </div>
+  <div class="site">
+  </div>
+</div>
+
+<div id="dialog" title="여행정보 등록">
+  <div class="dialog" style="min-height:80px; max-height:600px; height:auto;">
+    <form method="post" style="padding-bottom:20px;">
+      <h5 class="text-left">기본 정보</h5>
+      <div style="padding:15px;background-color:#eeeeee;">
+          <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:90px;margin:0;">장소명</label>
+            <input class="form-control" type="text" name="ti_locationname" placeholder="장소명 입력하세요."></div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="width:100px;margin:0;">대표이미지</label>
+            <input class="form-control" type="text" name="ti_theimg" placeholder="이미지를 입력하세요." id="filenName">
+            <label class="d-flex justify-content-center align-items-center"
+                  for="ti_theimg" style="background-color:#397cff;color:rgb(255,255,255);width:100px;margin:5px;margin-top:0;margin-bottom:0;">파일등록</label>
+          </div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="margin:0;width:80px;">메뉴 구분</label>
+            <span class="custom-dropdown">
+              <select name="selmenu" style="width:120px; height:35px;">
+                  <option value="" selected>메뉴 선택</option>
+                  <option value="보다">보다</option>
+                  <option value="먹다">먹다</option>
+                  <option value="마시다">마시다</option>
+                  <option value="자다">자다</option>
+              </select>
+            </span>
+            <label class="d-flex align-items-center" style="width:80px;margin-left:50px;margin-bottom:0;">유형 선택</label>
+            <span class="custom-dropdown">
+              <select name="seltype" style="width:120px; height:35px;">
+                  <option value="" selected>유형 선택</option>
+                  <option value="Must See">Must See</option>
+                  <option value="인기 지역">인기 지역</option>
+              </select>
+            </span>
+          </div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="margin:0;width:80px;">카테고리</label>
+            <span class="custom-dropdown">
+              <select name="selpart" style="width:120px; height:35px;">
+                  <option value="" selected>분류</option>
+                  <option value="필수">필수</option>
+                  <option value="선택">선택</option>
+              </select>
+            </span>
+            <span class="custom-dropdown">
+              <select name="selkinds" style="width:120px; height:35px;">
+                  <option value="" selected>종류</option>
+                  <option value="Place">Place</option>
+                  <option value="랜드마크">랜드마크</option>
+                  <option value="자연">자연</option>
+                  <option value="공원">공원</option>
+                  <option value="박물관">박물관</option>
+                  <option value="종교">종교</option>
+                  <option value="거리">거리</option>
+                  <option value="시장">시장</option>
+                  <option value="교통">교통</option>
+                  <option value="공공">공공</option>
+              </select>
+            </span>
+          </div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="width:85px;margin:0;">Tag</label>
+            <input class="form-control" type="text" name="ti_locationname" placeholder="태그를 입력하세요.">
+          </div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="width:85px;margin:0;">주소</label>
+            <input class="form-control" type="text" name="ti_locationname" placeholder="주소를 입력하세요.">
+          </div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="width:190px;margin:0;">웹사이트</label>
+            <input class="form-control" type="text" name="ti_locationname" placeholder="URL 입력하세요.">
+            <label class="d-flex align-items-center" style="width:150px;margin:0;margin-left:10px;">교통정보</label>
+            <input class="form-control" type="text" name="ti_locationname" placeholder="교통정보를 입력하세요.">
+          </div>
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="width:85px;margin:0;">소개정보</label>
+            <textarea class="form-control" placeholder="소개를 하세요." style="height:150px;"></textarea>
+          </div>
+      </div>
+      <input class="sr-only invisible" type="file" name="ti_theimg" multiple="" id="ti_theimg">
+      <h5 class="text-left" style="margin-top:20px;">부가 정보</h5>
+      <div style="padding:15px;background-color:#eeeeee;">
+          <div class="form-group d-flex">
+            <label class="d-flex align-items-center" style="width:85px;margin:0;">운영시간</label>
+            <input class="form-control" type="text" name="ti_locationname" placeholder="운영시간을 입력하세요.">
+          </div>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" type="submit" style="margin-top:20px;">Button</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/pen.js' %}"></script>
+<script src="{% static 'js/custominput.js' %}"></script>
+{% endblock %}

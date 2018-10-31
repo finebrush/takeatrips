@@ -1,0 +1,46 @@
+
+<body>
+    <header style="padding:15px;"><label class="d-inline-flex" style="font-size:24px;margin:0;margin-bottom:0;">여행정보 등록</label><i class="icon ion-android-close d-inline-flex float-right" style="font-size:36px;"></i></header>
+    <form method="post" style="padding:20px;padding-top:0;">
+        <h5 class="text-left">기본 정보</h5>
+        <div style="padding:15px;background-color:#eeeeee;">
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:90px;margin:0;">장소명</label><input class="form-control" type="text" name="ti_locationname" placeholder="장소명 입력하세요."></div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:100px;margin:0;">대표이미지</label><input class="form-control" type="text" name="ti_theimg" placeholder="이미지를 입력하세요." id="filenName"><label class="d-flex justify-content-center align-items-center"
+                    for="ti_theimg" style="background-color:#397cff;color:rgb(255,255,255);width:100px;margin:5px;margin-top:0;margin-bottom:0;">파일등록</label></div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="margin:0;width:80px;">메뉴 구분</label>
+                <div class="dropdown d-flex"><button class="btn btn-light btn-sm dropdown-toggle d-inline-block" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100px;">메뉴 선택&nbsp;</button>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">보다</a><a class="dropdown-item" role="presentation" href="#">먹다</a><a class="dropdown-item" role="presentation" href="#">마시다</a><a class="dropdown-item" role="presentation" href="#">자도</a></div>
+                </div><label class="d-flex align-items-center" style="width:80px;margin-left:50px;margin-bottom:0;">유형 선택</label>
+                <div class="dropdown d-flex"><button class="btn btn-light btn-sm dropdown-toggle d-inline-block" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100px;">유형 선택&nbsp;</button>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Must See</a><a class="dropdown-item" role="presentation" href="#">인기 지역</a></div>
+                </div>
+            </div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="margin:0;width:80px;">카테고리</label>
+                <div class="dropdown d-flex"><button class="btn btn-light btn-sm dropdown-toggle d-inline-block" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100px;">분류</button>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">필수</a><a class="dropdown-item" role="presentation" href="#">선택</a></div>
+                </div>
+                <div class="dropdown d-flex" style="margin-left:10px;"><button class="btn btn-light btn-sm dropdown-toggle d-inline-block" data-toggle="dropdown" aria-expanded="false" type="button" style="width:100px;">종류&nbsp;</button>
+                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Place</a><a class="dropdown-item" role="presentation" href="#">랜드마크</a><a class="dropdown-item" role="presentation" href="#">자연</a><a class="dropdown-item" role="presentation" href="#">공원</a>
+                        <a
+                            class="dropdown-item" role="presentation" href="#">박물관</a><a class="dropdown-item" role="presentation" href="#">종교</a><a class="dropdown-item" role="presentation" href="#">거리</a><a class="dropdown-item" role="presentation" href="#">시장</a><a class="dropdown-item" role="presentation"
+                                href="#">교통</a><a class="dropdown-item" role="presentation" href="#">공공</a></div>
+                </div>
+            </div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:85px;margin:0;">Tag</label><input class="form-control" type="text" name="ti_locationname" placeholder="태그를 입력하세요."></div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:85px;margin:0;">주소</label><input class="form-control" type="text" name="ti_locationname" placeholder="주소를 입력하세요."></div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:190px;margin:0;">웹사이트</label><input class="form-control" type="text" name="ti_locationname" placeholder="URL 입력하세요."><label class="d-flex align-items-center" style="width:150px;margin:0;margin-left:10px;">교통정보</label>
+                <input
+                    class="form-control" type="text" name="ti_locationname" placeholder="교통정보를 입력하세요."></div>
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:85px;margin:0;">소개정보</label><textarea class="form-control" placeholder="소개를 하세요." style="height:150px;"></textarea></div>
+        </div><input class="sr-only invisible" type="file" name="ti_theimg" multiple="" id="ti_theimg">
+        <h5 class="text-left" style="margin-top:20px;">부가 정보</h5>
+        <div style="padding:15px;background-color:#eeeeee;">
+            <div class="form-group d-flex"><label class="d-flex align-items-center" style="width:85px;margin:0;">운영시간</label><input class="form-control" type="text" name="ti_locationname" placeholder="운영시간을 입력하세요."></div>
+        </div><button class="btn btn-primary btn-block btn-lg" type="submit" style="margin-top:20px;">Button</button></form>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/fileform.js"></script>
+    <script id="bs-live-reload" data-sseport="54099" data-lastchange="1539916634593" src="/js/livereload.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark">
+    <div class="container"><a href="{% url 'frontend:base' %}" class="navbar-brand">Takeatraps</a>
+      <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse"
+            id="navcol-1" style="margin-left:100px; padding:5px">
+            <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                <li role="presentation" class="nav-item">
+                  <a href="{% url 'frontend:basic_info' %}" class="nav-link">기본정보관리</a>
+                </li>
+                <li role="presentation" class="nav-item">
+                  <a href="{% url 'frontend:travel_info' %}" class="nav-link">여행정보관리</a>
+                </li>
+                <li role="presentation" class="nav-item">
+                  <a href="{% url 'frontend:travelcurator' %}" class="nav-link">Travel Curator 관리</a>
+                </li>
+                <li role="presentation" class="nav-item">
+                  <a href="{% url 'frontend:travelplan' %}" class="nav-link">Travel Plan</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

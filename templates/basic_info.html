@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block headcontent %}
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="cd-full-width">
+    <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
+        <div class="tm-img-gallery-container">
+
+          <form id="FILE_FORM" action="javascript:sendinfo();" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+            <!-- 대표 지역 정보 -->
+            <div class="tm-img-gallery gallery-one">
+                <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
+                    <h2 class="tm-contact-info">대표지역 정보</h2>
+
+                    <!-- contact form -->
+                    <div class="form-group">
+                        <label class="tm-text">대표 지역명</label>
+                        <input type="text" id="bs_thename" name="bs_thename" class="form-control" placeholder="Name"  required/>
+                    </div>
+                    <div class="form-group" style="margin: 8px 0 8px;">
+                        <label class="tm-text">대표 이미지</label>
+                        <div class="fileRegiBtn">
+                          <div class="form-row">
+                            <div class="col-10"><input class="form-control d-inline" type="text" value="파일선택" disabled="" id="fileName"></div>
+                            <div class="col-2"><label class="col-form-label d-flex justify-content-center" for="bs_theimg" style="background-color:#397cff;color:rgb(255,255,255);">파일등록</label></div>
+                          </div>
+                          <input class="sr-only invisible" name="bs_theimg" type="file" id="bs_theimg">
+                          <!-- <label id="bs_preimg" for="preView">미리보기</label> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding:10px"></div>
+
+            <div class="tm-img-gallery gallery-one">
+                <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding tm-textbox-padding-contact">
+                    <h2 class="tm-contact-info">대표지역 소개</h2>
+
+                    <!-- contact form -->
+                    <div class="form-group">
+                        <label class="tm-text">소개 타이틀</label>
+                        <input type="text" id="bs_title" name="bs_title" class="form-control" placeholder="Name"  required/>
+                    </div>
+                    <div class="form-group">
+                        <label class="tm-text">소개 작가명</label>
+                        <input type="text" id="bs_writer" name="bs_writer" class="form-control" placeholder="Name"  required/>
+                    </div>
+                    <div class="form-group" style="margin: 8px 0 8px;">
+                        <label class="tm-text">소개 이미지</label>
+
+                        <!--
+                        	<div style="position:absolute;width:150px;height:150px;background:#fff;margin-left:15px;margin-top:15px;display:flex;justify-content:center;align-items:center;">
+                        		<label>
+                        			<input type="file" name="dosya" class="dosyasec" style="position:absolute;left:-9999px;">
+                        			<span style="position:absolute;right:0;bottom:0;color: #fff;background:#ff4444;padding:5px 7px;border-radius:3px;cursor:pointer">Dosya Seçiniz</span>
+                        		</label>
+
+                        		<img src="" style="max-width:150px;max-height:150px;">
+                        	</div>
+-->
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our File Inputs -->
+            <div class="wrap-custom-file">
+              <input type="file" name="bs_image1" id="bs_image1" accept=".gif, .jpg, .png" />
+              <label  for="bs_image1">
+                <span>Select Image One</span>
+                <i class="fa fa-plus-circle"></i>
+              </label>
+            </div>
+
+            <div class="wrap-custom-file">
+              <input type="file" name="bs_image2" id="bs_image2" accept=".gif, .jpg, .png" />
+              <label  for="bs_image2">
+                <span>Select Image Two</span>
+                <i class="fa fa-plus-circle"></i>
+              </label>
+            </div>
+
+            <div class="wrap-custom-file">
+              <input type="file" name="bs_image3" id="bs_image3" accept=".gif, .jpg, .png" />
+              <label  for="bs_image3">
+                <span>Select Image Three</span>
+                <i class="fa fa-plus-circle"></i>
+              </label>
+            </div>
+
+             <div class="wrap-custom-file">
+              <input type="file" name="bs_image4" id="bs_image4" accept=".gif, .jpg, .png" />
+              <label  for="bs_image4">
+                <span>Select Image Four</span>
+                <i class="fa fa-plus-circle"></i>
+              </label>
+            </div>
+
+            <div class="wrap-custom-file">
+              <input type="file" name="bs_image5" id="bs_image5" accept=".gif, .jpg, .png" />
+              <label  for="image5">
+                <span>Select Image Five</span>
+                <i class="fa fa-plus-circle"></i>
+              </label>
+            </div>
+
+             <div class="wrap-custom-file">
+              <input type="file" name="bs_image6" id="bs_image6" accept=".gif, .jpg, .png" />
+              <label  for="bs_image6">
+                <span>Select Image Six</span>
+                <i class="fa fa-plus-circle"></i>
+              </label>
+            </div>
+
+            <div style="padding:10px"></div>
+            <button type="submit" id="uploadFile" class="btn btn-primary btn-block btn-lg">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'js/imgupload.js' %}"></script>
+<script src="{% static 'js/custominput.js' %}"></script>
+{% endblock %}
