@@ -4,6 +4,6 @@ from django.views.generic import TemplateView
 
 # Redirect any request that goes into here to static/index.html
 urlpatterns = [
-    #url(r'^$', RedirectView.as_view(url='static/base.html', permanent=False), name='index')
-    url(r'^$', TemplateView.as_view(template_name='client/cbase.html'), name='cbase'),
+    url(r'^$', TemplateView.as_view(template_name='client/cintro.html'), name='cbase'),
+    url(r'^main/$', TemplateView.as_view(template_name='client/cmain.html'), name='cmain'),
 ]
