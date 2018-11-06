@@ -25,7 +25,7 @@ SECRET_KEY = '6#^1p9deb69h8^v)7os)^w)*$27&wls5v8nr*!#3q$@^vu8mx3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    
+
     'imageupload',
     'imageupload_rest',
     'imageupload_frontend',

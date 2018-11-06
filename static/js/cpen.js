@@ -11,6 +11,11 @@ $(document).ready(function () {
   autoSlideDelay = 3000,
   $pagination = $(".slider-pagi");
 
+  if (!curSlide){
+    $(".slider-pagi").addClass("firstPg");
+    $(".skipChar").addClass("firstPg");
+  }
+
   function createBullets() {
     for (var i = 0; i < numOfSlides + 1; i++) {
       var $li = $("<li class='slider-pagi__elem'></li>");
@@ -24,14 +29,27 @@ $(document).ready(function () {
 
   function manageControls() {
     $(".slider-control").removeClass("inactive");
-    if (!curSlide) $(".slider-control.left").addClass("inactive");
-    if (curSlide === numOfSlides) $(".slider-control.right").addClass("inactive");
+    if (!curSlide){
+      $(".slider-control.left").addClass("inactive");
+      $(".slider-pagi").addClass("firstPg");
+      $(".skipChar").addClass("firstPg");
+    }else{
+      $(".slider-pagi").removeClass("firstPg");
+      $(".skipChar").removeClass("firstPg");
+    }
+    if (curSlide === numOfSlides){
+      $(".slider-control.right").addClass("inactive");
+      $(".skipChar").addClass("firstPg");
+    }else{
+      $(".skipChar").removeClass("firstPg");
+    }
+
   };
 
   function autoSlide() {
     autoSlideTimeout = setTimeout(function () {
       curSlide++;
-      if (curSlide > numOfSlides) curSlide = 0;
+      if (curSlide > numOfSlides) return //curSlide = 0; //처음으로 돌아가지 않도록..마지막에서 멈춤..
       changeSlides();
     }, autoSlideDelay);
   };

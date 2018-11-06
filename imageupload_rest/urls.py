@@ -2,6 +2,8 @@ from django.conf.urls import url, include
 from rest_framework import routers
 from imageupload_rest.viewsets import UploadedImagesViewSet, FileView
 
+app_name = 'imageupload_rest'
+
 # initiate router and register all endpoints
 router = routers.DefaultRouter()
 router.register('images', UploadedImagesViewSet, 'images')
