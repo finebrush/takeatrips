@@ -7,7 +7,7 @@ http://www.templatemo.com/tm-522-venue
 */
 
 body {
-  font-family: 'Raleway', 'sans-serif';
+  font-family: 'Arial', 'sans-serif';
   background-color: #fff;
 }
 
@@ -25,20 +25,24 @@ p {
 }
 
 section {
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
-
 .section-heading {
-  text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 5px;
 }
 
 .section-heading span {
-  font-size: 17px;
-  display: block;
+  font-size: 14px;
+  display: -webkit-inline-box;
   margin: 0px;
-  color: #4883ff;
+  color: #1e1e1e;
+}
+
+.section-heading .see-all{
+  font-size: 12px;
+  color: #287dbe;
+  float: right;
 }
 
 .section-heading h2 {
@@ -87,10 +91,12 @@ section {
 }
 
 #header {
+  z-index: 1024;
   overflow: visible;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-color: #fff;
-  height: 60px;
 }
 
 
@@ -100,13 +106,12 @@ section {
   position: absolute;
   border: none;
   bottom: 0;
-  right: 15px;
-  top: 0;
+  top: 5px;
   z-index: 9;
   padding: 0;
   outline: none;
   text-decoration: none;
-  color: #fff;
+  color: #b4c3c8;
   text-align: center;
   font-weight: bold;
   font-size: 0;
@@ -124,26 +129,26 @@ section {
   /* content: 'â˜°'; */
   content: '\2261';
   display: inline-block;
-  background-color: #4883ff;
+  background-color: #ffffff;
   font-size: 36px;
   font-style: normal;
   font-weight: normal;
   line-height: 1.05;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
+  width: 100%;
+  line-height: 80%;
   color: inherit;
   speak: none;
   border: none;
 }
 
 #header .logo {
-  float: left;
+  float: right;
+  height: 100%;
+  padding: 14px 0px;
 }
 
 #header .logo img {
-  width: 70%;
-  height: 60px;
+  height: 20px;
   overflow: hidden;
 }
 
@@ -357,7 +362,7 @@ section.banner {
 }
 
 .banner .banner-caption span {
-  font-size: 22px;
+  font-size: 12px;
   color: #fff;
   letter-spacing: 0.5px;
 }
@@ -367,9 +372,8 @@ section.banner {
 }
 
 .banner .submit-form {
-  border-bottom: 5px solid #4883ff;
   background-color: #fff;
-  padding: 15px;
+  height: 200px;
 }
 
 .submit-form .first-item {
@@ -524,11 +528,7 @@ section.banner {
   background-color: rgba(250,250,250,0.3);
 }
 
-
-
 section.featured-places {
-  margin-top: 80px;
-  padding-bottom: 80px;
   background-color: #f4f4f4;
 }
 
@@ -1077,8 +1077,8 @@ section.contact .section-heading {
 
 
 footer {
-  margin-top: 80px;
-  padding: 80px 0px 70px 0px;
+  margin-top: 50px;
+  padding: 50px 0px 70px 0px;
   border-top: 1px solid #ddd;
 }
 
@@ -1093,6 +1093,7 @@ footer .footer-heading h4 {
 
 footer .about-veno .logo {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 footer .about-veno ul li a {
@@ -1181,11 +1182,12 @@ footer .contact-info ul li a {
   color: #4883ff;
 }
 
-
 @media (max-width:992px) {
 
   .banner .banner-caption {
-    padding: 200px 30px;
+    padding: 10px 0px;
+    text-align: center;
+    background-color: #465a75;
   }
 
   .submit-form input {

@@ -1,249 +1,146 @@
 {% load static %}
-<!-- Section 1 : Best Finder For You -->
-<section class="banner" id="top">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="banner-caption">
-                    <div class="line-dec"></div>
-                    <h2>Best Finder For You</h2>
-                    <span>Suspendisse eu lorem massa. Integer sit amet posuere tellus.</span>
-                    <div class="blue-button">
-                        <a class="scrollTo" data-scrollTo="popular" href="#">Discover More</a>
-                    </div>
-                </div>
-                <div class="submit-form">
-                    <form id="form-submit" action="" method="get">
-                        <div class="row">
-                            <div class="col-md-3 first-item">
-                                <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-md-3 second-item">
-                                <fieldset>
-                                    <input name="location" type="text" class="form-control" id="location" placeholder="Type location..." required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-md-3 third-item">
-                                <fieldset>
-                                    <select required name='category' onchange='this.form.()'>
-                                        <option value="">Select category...</option>
-                                        <option value="Shops">Shops</option>
-                                        <option value="Hotels">Hotels</option>
-                                        <option value="Restaurants">Restaurants</option>
-                                        <option value="Events">Events</option>
-                                        <option value="Meetings">Meetings</option>
-                                        <option value="Fitness">Fitness</option>
-                                        <option value="Cafes">Cafes</option>
-                                    </select>
-                                </fieldset>
-                            </div>
-                            <div class="col-md-3">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Search Now</button>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Section 2 : Popular Places -->
+
+<!-- Section 2 : Must See -->
 <section class="popular-places" id="popular">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-heading">
-                    <span>Popular Places</span>
-                    <h2>Integer sapien odio</h2>
+                    <span>Must See</span>
+                    <a href="#"><div class="see-all">See All</div></a>
                 </div>
             </div>
         </div>
-        <div class="owl-carousel owl-theme">
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_1.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Mauris tempus</h4>
-                        <span>76 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
+        <div class="row">
+              <div class="col-md-6" style="width:50%;">
+                <div class="thumbnail-wrapper" style="width:100%;height:100px;overflow:hidden;">
+                  <div class="thumbnail">
+            <!--        <a href="{% static 'imgs/client/conts/c01.jpg' %}" target="_blank">   -->
+                      <img style="width:100%;" src="{% static 'imgs/client/conts/c01.jpg' %}">
+                    </a>
+                  </div>
                 </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_2.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Aenean dolor</h4>
-                        <span>18 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
+                <div style="width:100%;color:#1f304d;margin-top:5px;">
+                  Cheonggyecheon Square
                 </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_3.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Nunc at quam</h4>
-                        <span>55 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
+                <div style="width:100%;color:#8d9ea3;">
+                  Place
                 </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_4.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Fusce ac turpis</h4>
-                        <span>66 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
+              </div>
+              <div class="col-md-6" style="width:50%;">
+                <div class="thumbnail-wrapper" style="width:100%;height:100px;overflow:hidden;">
+                  <div class="thumbnail">
+              <!--      <a href="{% static 'imgs/client/conts/c02.jpg' %}" target="_blank">  -->
+                      <img style="width:100%;" src="{% static 'imgs/client/conts/c02.jpg' %}">
+                    </a>
+                  </div>
                 </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_5.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Lorem ipsum</h4>
-                        <span>82 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
+                <div style="width:100%;color:#1f304d;margin-top:5px;">
+                  Topgol Park
                 </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_1.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Praesent nec</h4>
-                        <span>76 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
+                <div style="width:100%;color:#8d9ea3;">
+                  Place
                 </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_2.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Suspendisse</h4>
-                        <span>36 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_3.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Bibendum</h4>
-                        <span>48 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_4.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Quisque sodales</h4>
-                        <span>66 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_5.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Pellentesque</h4>
-                        <span>85 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_1.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Commodo</h4>
-                        <span>76 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_2.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Adipiscing</h4>
-                        <span>32 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_3.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Etiam hendrerit</h4>
-                        <span>49 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_4.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Suspendisse</h4>
-                        <span>63 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item popular-item">
-                <div class="thumb">
-                    <img src="{% static 'imgs/popular_item_5.jpg' %}" alt="">
-                    <div class="text-content">
-                        <h4>Sit amet dictum</h4>
-                        <span>86 listings</span>
-                    </div>
-                    <div class="plus-button">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
+              </div>
         </div>
     </div>
 </section>
+
+<!-- Section 2 : Must Eat -->
+<section class="popular-places" id="popular">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <span>Must Eat</span>
+                    <a href="#"><div class="see-all">See All</div></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+              <div class="col-md-6" style="width:50%;">
+                <div class="thumbnail-wrapper" style="width:100%;height:100px;overflow:hidden;">
+                  <div class="thumbnail">
+                <!--    <a href="{% static 'imgs/client/conts/c03.jpg' %}" target="_blank">  -->
+                      <img style="width:100%;" src="{% static 'imgs/client/conts/c03.jpg' %}">
+                    </a>
+                  </div>
+                </div>
+                <div style="width:100%;color:#1f304d;margin-top:5px;">
+                  Yurim Nak Ji
+                </div>
+                <div style="width:100%;color:#8d9ea3;">
+                  Eat
+                </div>
+              </div>
+              <div class="col-md-6" style="width:50%;">
+                <div class="thumbnail-wrapper" style="width:100%;height:100px;overflow:hidden;">
+                  <div class="thumbnail">
+            <!--        <a href="{% static 'imgs/client/conts/c04.jpg' %}" target="_blank">  -->
+                      <img style="width:100%;" src="{% static 'imgs/client/conts/c04.jpg' %}">
+                    </a>
+                  </div>
+                </div>
+                <div style="width:100%;color:#1f304d;margin-top:5px;">
+                  Cheungkee Noddles
+                </div>
+                <div style="width:100%;color:#8d9ea3;">
+                  Eat
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2 : Travel Culator -->
+<section class="popular-places" id="popular">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <span>Travel Culator</span>
+                    <a href="#"><div class="see-all">See All</div></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+              <div class="col-md-12" style="width:100%;">
+                <div class="thumbnail-wrapper" style="width:100%;height:100px;overflow:hidden;">
+                  <div class="thumbnail">
+            <!--        <a href="{% static 'imgs/client/conts/c05.jpg' %}" target="_blank">  -->
+                      <img style="width:100%;" src="{% static 'imgs/client/conts/c05.jpg' %}">
+                    </a>
+                  </div>
+                </div>
+                <div style="width:100%;color:#1f304d;margin-top:5px;">
+                  Do you know Insa-Dong on a rainy day?
+                </div>
+                <div style="width:100%;color:#8d9ea3;">
+                  by Steve Bak
+                </div>
+              </div>
+              <div class="col-md-12" style="width:100%;margin-top:20px">
+                <div class="thumbnail-wrapper" style="width:100%;height:100px;overflow:hidden;">
+                  <div class="thumbnail">
+          <!--          <a href="{% static 'imgs/client/conts/c04.jpg' %}" target="_blank">  -->
+                      <img style="width:100%;" src="{% static 'imgs/client/conts/c04.jpg' %}">
+                    </a>
+                  </div>
+                </div>
+                <div style="width:100%;color:#1f304d;margin-top:5px;">
+                  Main icon of Korean food, Banchan!
+                </div>
+                <div style="width:100%;color:#8d9ea3;">
+                  by Steve Bak
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    L.mapbox.accessToken = 'pk.eyJ1IjoiZmluZWJydXNoIiwiYSI6ImNqaTM4ZmhvZTFqZjYza253cnVydm54aHgifQ.AMGLiQ9Mq1jusW07UW5THQ';
+    var map = L.mapbox.map('openstreet-map', 'mapbox.streets')
+        .setView([37.57032, 126.97687], 15);
+</script>

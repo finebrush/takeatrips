@@ -40,8 +40,6 @@ $(document).ready(function () {
     if (curSlide === numOfSlides){
       $(".slider-control.right").addClass("inactive");
       $(".skipChar").addClass("firstPg");
-    }else{
-      $(".skipChar").removeClass("firstPg");
     }
 
   };
