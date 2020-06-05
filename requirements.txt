@@ -4,7 +4,7 @@ cffi==1.11.5
 chardet==3.0.4
 conda==4.5.11
 cryptography==2.3.1
-Django==1.10.3
+Django==1.11.29
 django-appconf==1.0.2
 django-filter==1.1.0
 django-imagekit==4.0.2
